@@ -11,7 +11,8 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 from pathlib import Path
-from decouple import config 
+from decouple import config
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -110,13 +111,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 AUTH_USER_MODEL = 'accounts.CustomUser'
 
 # settings.py
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', '[54.116.153.208]', '[hufsstore.shop]']
+ALLOWED_HOSTS = ['127.0.0.1', '54.116.153.208', 'hufsstore.shop']
 # 예시) ALLOWED_HOSTS = ['127.0.0.1', '3.12.211.15', 'meotsa.com']
 
 # 파일 맨 하단에 추가
