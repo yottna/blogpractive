@@ -75,13 +75,6 @@ WSGI_APPLICATION = 'blogpractice.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
 
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
@@ -119,3 +112,27 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 AUTH_USER_MODEL = 'accounts.CustomUser'
+
+# settings.py
+DEBUG = False
+
+ALLOWED_HOSTS = ['127.0.0.1', '[54.116.153.208]', '[hufsstore.shop]']
+# 예시) ALLOWED_HOSTS = ['127.0.0.1', '3.12.211.15', 'meotsa.com']
+
+# 파일 맨 하단에 추가
+try:
+    from .local_settings import *
+except ImportError:
+    pass 
+
+# settings.py (MacOS는 상단에 아래 두 줄 추가)
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
+        'PORT': 3306,
+    }
+}
