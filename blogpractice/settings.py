@@ -135,4 +135,4 @@ DATABASES = {
         'HOST': config('DB_HOST'),
         'PORT': 3306,
     }
-}
+} 
