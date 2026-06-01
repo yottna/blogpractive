@@ -121,11 +121,6 @@ DEBUG = False
 ALLOWED_HOSTS = ['127.0.0.1', '54.116.153.208', 'hufsstore.shop']
 # 예시) ALLOWED_HOSTS = ['127.0.0.1', '3.12.211.15', 'meotsa.com']
 
-# 파일 맨 하단에 추가
-try:
-    from .local_settings import *
-except ImportError:
-    pass 
 
 # settings.py (MacOS는 상단에 아래 두 줄 추가)
 DATABASES = {
@@ -138,3 +133,9 @@ DATABASES = {
         'PORT': 3306,
     }
 } 
+
+# 파일 맨 하단에 추가
+try:
+    from .local_settings import *
+except ImportError:
+    pass 
