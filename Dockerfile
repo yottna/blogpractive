@@ -1,4 +1,4 @@
-FROM python:3.10.12 // python --version으로 프로젝트 파이썬 버전 확인 후 수정 요
+FROM python:3.10.12 
 
 ENV PYTHONUNBUFFERED=1
 
